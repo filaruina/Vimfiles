@@ -1,3 +1,6 @@
+#!/bin/sh
+#stupping script to clone all plugins
+#although, it wont download from vim website
 cd 'bundle';
 
 for url in `grep github ../pluginlist`; do
