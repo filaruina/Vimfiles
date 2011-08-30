@@ -1,3 +1,6 @@
+" Taken from an Ubuntu default vimrc removed somethings and lost the author,
+" sorry, Filipe
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -71,48 +74,50 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" From now on, Filipe La Ruina rules
+
+" Pathogen setup
 call pathogen#infect()
 
-" Tamanho do tab
+" Tabs as spaces, 4 spaces
+set expandtab
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4 
 
-" Liga o Color highlight
+" Syntax highlight
 syntax on
 
-" Sempre vem com números
+" File numbering
 set number
 
-" Tela preta For The Win!
+" Black background is the best, everyone knows that
 set background=dark
 
-" Pra ele nao criar aqueles arquivinhos de backup
+" No backup files, yet there is still swp
 set nobackup
 
-" Tamanho da coluna mostrando o folding
+" Indentation folding as default
+set foldmethod=indent 
 set foldcolumn=2 
 
-" Método de Folding. A doumentaçao explica todos os outros.
-set foldmethod=indent 
-
+" Really dont remember what this does but ive found it makes
+" things faster so it stays
 set lazyredraw
 
-exe "set tags=~/.vim/tags/bolsa6"
-
+" Mapping <F2> for NerdTree open/close
 map <F2> :NERDTreeToggle<CR>
 
-" Exibe o menu quando for fazer o complete nos :
+" showing the autocomplete menu for : when tab pressed
 set wildmenu
 
-" Autocomplete do PHP
+" Autocomplete for PHP
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-" Fazendo com que arquivos do twig usem o syntax do jinja
+" I use twig, which uses the jinja syntax
 au BufRead,BufNewFile *.twig setfiletype htmljinja
 
-" Mapeamento de teclas maiusculas digitadas incorretamente
-" Afinal Segurar o shift causa isso :)
-" Filipe La Ruina
+" Common typos fixed
 cab W  w
 cab Wq wq
 cab wQ wq
